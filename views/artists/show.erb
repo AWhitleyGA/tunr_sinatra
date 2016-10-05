@@ -1,0 +1,19 @@
+<a href="/artists"> Return to All Artists </a>
+
+<h2><%= @artist.name %></h2>
+
+<img src="<%= @photo %>">
+<p><%= @artist.nationality %></p>
+<a href="/artists/<%= @artist.id %>/edit">Edit Artist Info</a>
+<!-- <a href="/artists/<%= @artist.id %>/delete">Delete Artist</a> -->
+<form action="/artists/<%= @artist.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit">Delete Artist</button>
+</form>
+
+<h3>Songs</h3>
+<ul>
+  <% @songs.each do |song| %>
+    <li><%= song.title %></li>
+  <% end %>
+</ul>
